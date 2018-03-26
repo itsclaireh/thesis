@@ -84,4 +84,3 @@ X_train_counts = count_vect.fit_transform(data)
 X_train_counts.shape;
 
 print(X_train_counts);
-print(data.text);
