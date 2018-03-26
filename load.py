@@ -5,8 +5,12 @@ import scipy
 import pandas as pd
 from io import StringIO
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.feature_extraction.text import CountVectorizer
 
 #url = "https://raw.githubusercontent.com/claireballoon/thesis/master/TestData.tsv"
+
+#with urllib.request.urlopen("https://raw.githubusercontent.com/claireballoon/thesis/master/TestData.tsv") as url:
+#    raw_data = url.read().decode('utf-8')
 
 #put our file into an array
 content=[];
@@ -59,27 +63,25 @@ with open('testcrap.csv','r') as textfile:
         #now add that array to the list of tweet contents without labels
         contentsWithoutLabels.append(currentTweet.pop());
 
-#for x in reversed(contentsWithoutLabels):
-#    print('['+x+']');
-
-length=len(ids);
 #put it all back together
-df1 = pd.DataFrame(np.array(ids));
-df2 = pd.DataFrame(np.array(contentsWithoutLabels));
-df3 = pd.DataFrame(np.array(rel));
-data=pd.concat([df1,df2,df3],axis=1);
-data.columns=['id_str','text','related'];
-print(data);
+#but only if all our lists are of the same length
+length=len(ids);
+if (len(contentsWithoutLabels) == length and len(rel) == length):
+    df1 = pd.DataFrame(np.array(ids));
+    df2 = pd.DataFrame(np.array(contentsWithoutLabels));
+    df3 = pd.DataFrame(np.array(rel));
+    #df4 = pd.DataFrame(np.array(st));
+    #df5 = pd.DataFrame(np.array(cat));
+    data=pd.concat([df1,df2,df3],axis=1);
+    data.columns=['id_str','text','related'];
+    print(data);
+else:
+    print('Data mismatch');
 
-#with urllib.request.urlopen("https://raw.githubusercontent.com/claireballoon/thesis/master/TestData.tsv") as url:
-#    raw_data = url.read().decode('utf-8')
 
-#dataset = np.loadtxt(raw_data, delimiter="\t")
-#X = dataset[:,0:1]
-#y = dataset[:,2]
+count_vect = CountVectorizer();
+X_train_counts = count_vect.fit_transform(data)
+X_train_counts.shape;
 
-
-#categories=['1','2']
-
-#print(names)
-#print(dataset)
+print(X_train_counts);
+print(data.text);

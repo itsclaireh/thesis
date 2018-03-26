@@ -11,7 +11,6 @@ from sklearn.model_selection import train_test_split, cross_val_score, GridSearc
 from time import time
 import gensim
 
-# plotly configuration
 plotly.offline.init_notebook_mode()
 
 class TwitterData_Initialize():
@@ -31,12 +30,13 @@ class TwitterData_Initialize():
         self.is_testing = is_testing_set
 
         if not is_testing_set:
-            self.data = pd.read_csv(csv_file, header=0, names=["id_str","text","related","stance","category"]])
+            #self.data = pd.read_csv(csv_file, header=0, names=["id_str","text","related","stance","category"]])
+            self.data = pd.read_csv(csv_file, header=0, names=["id_str","text","related"]])
             self.data = self.data[self.data["related"].isin([1,2])]
-            self.data = self.data[self.data["stance"].isin([1,2,3])]
-            self.data = self.data[self.data["category"].isin(["A", "B", "C","D"])]
+            #self.data = self.data[self.data["stance"].isin([1,2,3])]
+            #self.data = self.data[self.data["category"].isin(["A", "B", "C","D"])]
         else:
-            self.data = pd.read_csv(csv_file, header=0, names=["id", "text"],dtype={"id":"int64","text":"str"},nrows=4000)
+            self.data = pd.read_csv(csv_file, header=0, names=["id", "text", "related"],dtype={"id":"int64","text":"str"},nrows=4000)
             not_null_text = 1 ^ pd.isnull(self.data["text"])
             not_null_id = 1 ^ pd.isnull(self.data["id_str"])
             self.data = self.data.loc[not_null_id & not_null_text, :]
