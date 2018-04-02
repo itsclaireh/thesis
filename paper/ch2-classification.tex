@@ -1,0 +1,203 @@
+For every tweet, the program will make either one, two, or three determinations depending on the level of relevancy, context, and detail. It will first determine whether or not the tweet using \#MeToo is relevant to the movement. If it is relevant, it will then determine the stance of the tweet regarding the movement. If there is enough context, the last check is to determine the type of sexual harassment or assault being described.
+
+\section{Determining Relevancy}
+
+The majority of the tweets using the hashtag \#MeToo are relevant to the movement in some way. However, sometimes they are not. Examples of irrelevant tweets are ones that are written by bots and no meaningful determination can be made, the tweets are unintelligible, the entirety of the tweet's context can only be determined through following a URL or image, tweets that use the hashtag \#MeToo for the purpose of winning a giveaway or for increased visibility in a promotion, or tweets that are obviously misrepresenting or misusing the hashtag. Relevant tweets were assigned the number 1 and irrelevant tweets were assigned a the number 2. Table 3.1 illustrates examples of irrelevant tweets.
+
+\begin{table}[H]
+    \centering
+    \caption{Tweet Examples - Irrelevant}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & { https:\/\/ soundcloud.com\/zay-hippy \#askNiall \#Bellator185 \#MeToo \#BadTimesToTellAJoke \#FridayFeeling \#RaiderNation \#LouCity \#bitcoin \#WWEBuenosAires } & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{ } & \multicolumn{1}{c}{ }\\
+        2 & { \#MeToo You too can achieve salvation by doing worship as per our Holly scriptures. To know more watch SADHANA TV 7:40 pm pic.twitter.com\/4wwhbEFZjM } & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{ } & \multicolumn{1}{c}{ }\\
+        3 & { @Der\_Peemann check this crazy track out \#hiphop you like it? ``Yes really"? \#MeToo WHAT? } & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{ } & \multicolumn{1}{c}{ }\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Discerning the Stance}
+
+When manually categorizing tweets within the excel sheet, each tweet that is relevant to the \#MeToo movement with enough context to ascertain a stance was assigned a 1, 2 or 3 accordingly:
+
+\begin{enumerate}
+    \item Support
+    \item Against
+    \item Neutral
+\end{enumerate}
+
+Tweets without enough context to determine the stance were left void. Tweets that are expressing a personal experience with sexual harassment or assault are considered supportive tweets. Tweets that are expressing a supportive sentiment but not claiming victimhood are also considered supportive tweets. The distinction between tweets that are supportive of \#MeToo in solidarity and supportive of \#MeToo because of a personal experience are made in the third check of the program. Tweets that are critical or against the movement are labeled as thus, and tweets asking a sincere question or making an ambiguous remark regarding the movement are considered neutral.
+
+\begin{table}[H]
+    \centering
+    \caption{Tweet Examples - Stance}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & {Calling In – Not Calling Out – Men ( \#METOO BUT NOW WHAT?) Good men wondering what to do, this guide is for you.} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{ } & \multicolumn{1}{c}{ }\\
+        2 & {The \#MeToo Photo Going Viral on Instagram https:\/\/ buff.ly\/2ysRfIe pic.twitter.com\/uyFONo00vA}  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{ } & \multicolumn{1}{c}{ }\\
+        3 & {Okay, first off, with all the \#metoo stuff going around, what exactly are you classifying as sexual assault?} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{ }\\
+        4 & {the whole MeToo thing seems pointless tbh, like literally all 3.whatever billion women on this earth have experienced degrees of harrassment} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{ }\\
+        5 & {Just another trend started by idiots to get attention. If someone abused you,you should've slapped that cunt.Not cry on social media \#MeToo} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{ }\\
+        6 & {This \#metoo thing has me nearly in tears. It's not that I didn't know, but it's something else to confront the enormity of the problem.} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{}\\
+        7 & {\#MeToo} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{4}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Classifying types of sexual harassment}
+
+Following the school of thought of those researchers who consolidated Gruber's categories is ultimately the strongest approach to the problem, as it maintains consistency among the diversity in victims' perceptions. With regards to the integrity of the classification, Twitter's character limit prohibits users from providing an adequate context to classify a tweet with confidence, and the personal bias of the author of each tweet could result in improper categorization if the algorithm were to attempt to place each tweet within one of Gruber's very specific categories. Ultimately, three broad categories have been defined that consolidate Gruber's 11 types into each one: \textit{patronizing}, \textit{unwanted sexual attention}, and \textit{predatory}.
+
+\subsection{Category A: Patronizing}
+
+The "patronizing" category aggregates the following categories from Gruber's work:
+
+\begin{itemize}
+  \item Relational Advances
+  \item Possession/display of sexual materials
+  \item Subjective objectification
+  \item Sexual Categorical Remarks
+\end{itemize}
+
+The patronizing category is designed to address behaviors that commonly fall into the ``gray space" of sexual harassment. Comprehensively, this category is comprised of generally sexist remarks, gender-motivated harassment that is not necessarily pursuing a personal relationship with the recipient, nonverbal displays of harassment that are sexual in nature, and nonsexual behaviors and remarks that the victim interprets as being sexual. Because many victims experience sexual harassment in contexts that are not applicable to Title VII or Title IX but cannot otherwise cannot legally qualify as harassment, there is a lot of controversy among perception of these behaviors. In general, if a neutral, unaffiliated third party witnesses the behavior and could reasonably deem the behavior as being nonsexual yet the percipient still perceives it as thus, that type of harassment would be classified as patronizing behavior; additionally, this requires that the remark or behavior does not have an obvious sexual goal with the victim.
+
+\begin{table}[H]
+    \centering
+    \caption{Patronizing Tweet Examples}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & {Simply walking to class in normal, baggy, purposely-unattractive clothes still somehow warranted catcalls and unsolicited comments. \#metoo} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1}\\
+        2 & {\#MeToo When I was 17 my boss screamed @me in front of a store full of customers what's ur problem? R u on ur period or something?""} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1}\\
+        3 & {\#MeToo To all the boys driving, yelling perverted things at me, and my mom who said its because of the clothes I wore...at 12 years old} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1}\\
+        4 & {because having big boobs means ``all the boys will like you" \#MeToo} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1}\\
+        5 & {Men, don't use deterogating\textbackslash{}belittling\textbackslash{}demeaning words towards women or call men female words - you make it seem women are worth less \#MeToo} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Relational advances, such as repeated contact of a nonsexual nature, could reasonably make a victim fear that the advances might be sexually motivated and therefore cause them to interpret the behavior as harmful. In some cases, it is revealed in hindsight that the offender had a sexually motivated goal in regards to the victim, but it could not be objectively determined at the time the behavior was exhibited.
+
+Gruber's category of sexual categorical remarks (possession or display of sexual materials and other sexist behaviors and comments) belongs in this category because of the discrepancy between issues that occur in professional versus casual environments. When evaluating non-professional contexts, these behaviors are not always present to a degree of severity or frequency that they could constitute a different criminal offense (stalking/cyberstalking, harassment, etc.) where they would easily qualify as sexual harassment in a professional setting because of the behavior's contribution to a hostile work environment.
+
+Subjective objectification, which includes remarks made about a victim whether or not she is present (ex. rumors), is also evaluated as being within the patronizing category for the same purpose of accommodating the professional versus casual environment discrepancy.
+
+Behaviors that are subject to controversy, such as establishing the boundary between flirting and harassment, are likely to be placed here. These behaviors comprise the category called "patronizing" because they are not consistently and objectively interpreted as having the intention of pursuing a sexual relationship with the victim. More examples of patronizing sexual harassment include but are not limited to: sexist comments, obscene gestures or drawings about the victim, catcalling or ambiguously sexual behaviors and comments, teasing, banter, jokes, inappropriate comments regarding the victim's body (ex. weight, level of attractiveness, etc.), and other minor behaviors that would legally contribute to a hostile work environment but cannot when reviewing peer-to-peer harassment.
+
+\subsection{Category B: Unwanted Sexual Attention}
+
+The "unwanted sexual attention" category aggregates the following categories from Gruber's work:
+
+\begin{itemize}
+    \item Sexual advances
+    \item Subtle pressures/advances
+    \item Personal remarks
+    \item Sexual posturing
+\end{itemize}
+
+The category of unwanted sexual attention includes any behavior, language, questions, or comments of an explicitly sexual nature. Explicitly means that an unaffiliated, objective third party would also find the nature of the comment to be sexual. These comments are an easy classification to make when they take place in a professional environment because they directly follow traditional legal classifications when evaluating a hostile work environment. When evaluating social and casual environments, the behaviors become more complex to categorize because the harasser legally has the room to act within a reasonable degree of respectful, personal interest and flirting with the victim.
+
+\begin{table}[H]
+    \centering
+    \caption{Unwanted Sexual Attention Tweet Examples}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2}\\
+        2 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2}\\
+        3 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2}\\
+        4 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2}\\
+        5 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Regarding instances where the harasser claims to be merely flirting in such an environment, the comments or questions made would fall under this category of unwanted sexual attention if the victim has communicated their lack of interest or if the comments or questions were egregiously sexual in nature. If the alleged harasser has a reasonable defense for claiming their statements were innocent and a neutral observer would agree, the incident would instead be categorized within the previous category as patronizing instead.
+
+In general, any form of non-consensual physical contact is predatory with the exception of socially and culturally acceptable forms of physical contact, such as shaking hands or using hugs as a greeting. However, the victim in some cases still interprets these forms of contact as harassment. This could be because the socially acceptable contact is coming from someone who has previously behaved inappropriately or another valid reason that could make the victim uncomfortable. To categorize these behaviors accurately, the standard of evaluation again is considering the opinion of what an unaffiliated, objective third party would interpret had they walked in to witness the behavior. If the neutral party would reasonably interpret the physical contact as socially appropriate yet the victim maintains that the contact was sexually motivated, the harasser's  behavior is classified as unwanted sexual attention. If the neutral third party would reasonably interpret the behavior as strange, unusual, or inappropriate, it would be categorized as predatory instead.
+
+Bystander harassment is also considered unwanted sexual attention within this thesis. According to Gruber's classification, a victim of bystander harassment (an individual witnessing harassment that happens to another person) would be considered within his category of sexual categorical remarks, which is aggregated into patronizing behavior. However, within this thesis, it is more appropriate to classify bystander harassment as a form of unwanted sexual attention. Gruber's topology was developed regarding legally upheld forms of sexual harassment and consequently does not consider some impacts of sexual assault as opposed to sexual harassment. Gruber's description of bystander harassment does not address witnessing sexual assault, possibly because such an instance would be considered under different criminal boundaries. The likelihood of witnessing sexual assault is extremely small in general, but even more so with regards to professional environments. Because this thesis needs to consider victims who witnessed assault happening to a peer, bystander harassment is classified as unwanted sexual attention. This is the only significant philosophical or logical deviation from Gruber's classification rules.
+
+Overall, the category of unwanted sexual attention is comprised of any behavior that is explicitly sexual when the victim has expressed their lack of interest, any explicitly sexual behavior that occurred within a workplace or academic environment (which falls within Title VII and Title XI regulations), any language or interaction that is beyond what is reasonably accepted as flirting, bystander harassment, and ambiguous forms of conventionally accepted physical contact.
+
+\subsection{Category C: Predatory}
+
+The "predatory" category aggregates the following categories from Gruber's work:
+
+\begin{itemize}
+    \item Sexual bribery
+    \item Sexual assault
+    \item Sexual touching
+\end{itemize}
+
+Predatory behavior includes all forms of non-consensual physical contact, excluding the commonly accepted forms of contact addressed within the previous category. Predatory behaviors include attempted or successful rape, sexual assault and battery, and \textit{quid pro quo} arrangements.
+
+\begin{table}[H]
+    \centering
+    \caption{Predatory Tweet Examples}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{3}\\
+        2 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{3}\\
+        3 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{3}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Some nuances regarding authority exist within the predatory behavior category. If the harasser is exhibiting behavior generally classified as unwanted sexual attention but stands in a position of authority over the victim (ex. boss or teacher), the behavior considered predatory due to the nature of the relationship between the harasser and victim. Any and all forms of sexual comments, remarks, questions, and contacts between an adult and a minor is considered predatory, even if the behavior would be considered patronizing or unwanted sexual attention if the two parties were of legal age.
+
+\subsection{Category D: Not Enough Context}
+
+The majority of tweets that use \#MeToo to express an experience do not describe it with a compelling level of detail. Many users do not describe their experience at all and merely attest their victimhood by writing ``\#MeToo." Anything that is clearly claiming to have experienced sexual assault or sexual harassment but does not have a significant enough level of detail to determine the type of harassment falls within this category. Tweets that were classified as having a supportive stance but did not claim victimhood are left blank in this check.
+
+\begin{table}[H]
+    \centering
+    \caption{Not Enough Context Tweet Examples}
+    \rowcolors{2}{White}{Gray!20}
+    \begin{tabular}{m{1cm} m{8cm} m{1.5cm} m{1.1cm} m{2.1cm}}
+        \toprule
+        & {} & {} & {} & {\textbf{Harassment}} \\
+        \rowcolor{White}\textbf{ID} & {\textbf{Original Tweet Text}} & {\textbf{Relevant}} & {\textbf{Stance}} & {\textbf{Category}} \\
+                \midrule
+        1 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{4}\\
+        2 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{4}\\
+        3 & `\ldots example \ldots' & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{4}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Assembling Gruber's 11 types of sexual harassment alongside into the three categories \textit{patronizing}, \textit{unwanted sexual attention}, and \textit{predatory} successfully accommodates the ambiguous and controversial areas created by each Twitter user's interpretation of the behavior that he or she experienced. As these users' individual accounts of their experiences have not necessarily been reviewed (such as by a human resources department, the police, etc.), this is the best approach to this problem. It also avoids claiming a degree of accuracy that cannot be determined with confidence. If there is not enough context to confidently classify a tweet within one of these three categories, it is labeled as not having enough context.
+
+\section{Categorization Rules}
+
+Some rules exist to accommodate the parameters of the algorithm. This list covers all categorization decisions that are not obvious or intuitive.
+
+\begin{enumerate}
+  \item Remove tweets that are not written in English from the dataset.
+  \item Ignore URLs entirely, even if the rest of the context could be retrieved at that destination. Do not parse and consider words within the URL.
+  \item Do not consider words that are contained within username mentions beginning with the @ symbol.
+  \item Do consider words that are contained within other hashtags.
+  \item Context that cannot be confidently determined because of sarcasm should be left blank.
+  \item Advocacy on behalf of a friend is considered to be only supportive and not a personal experience if the author did not personally witness the assault or behavior.
+  \item If the tweet only says ``\#MeToo", give the author the benefit of the doubt and assume that they have indeed experienced a form of sexual harassment or assault but without enough context.
+  \item Tweets that \textit{imply} a personal experience but do not claim one are categorized as having a supportive stance but left blank when determining the type of harassment. The only exceptions are tweets that only contain ``\#MeToo"
+  \item If the categorization is difficult to make, the decision should be made by giving the benefit of the doubt to the author of the tweet. This decision is based on the research suggesting that victims of sexual harassment experience the negative physical consequences (anxiety, insomnia, etc.) regardless of whether or not they can accurately identify a behavior as being sexual harassment or not.
+\end{enumerate}

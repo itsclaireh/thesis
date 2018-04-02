@@ -1,0 +1,77 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{olemiss}
+\usepackage{setspace}
+\usepackage{acronym}
+\usepackage{booktabs, siunitx}
+\usepackage[svgnames,table]{xcolor}
+\usepackage[tableposition=above]{caption}
+\usepackage{booktabs}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{array}
+
+\begin{document}
+
+\titlepage{Classifying \#MeToo Hash-tagged Tweets by Semantics to Understand the Extent of Sexual Harassment}
+{Claire Elise Hubacek}
+{Oxford}
+{May 2018}
+{Dr. Naeemul Hassan}
+{Dr. Kirsten Dellinger}
+{Dr. Dawn Wilkins}
+
+\initializefrontsections
+\copyrightpage{\textcopyright 2018}{Claire Elise Hubacek}
+
+\startacknowledgementspage{
+\input{pre1-ack}
+}
+
+\startabstractpage {
+\input{pre2-abstract}
+}
+
+\producetableofcontents{}
+\listoffigures
+\listoftables
+\listofabbreviations
+
+\startthechapters
+
+\chapter{INTRODUCTION}{
+\input{ch0-intro}
+}
+
+\chapter{PREPARATORY WORK}{
+\input{ch1-prep}
+}
+
+\chapter{CLASSIFICATION METHODOLOGY}{
+\input{ch2-classification}
+}
+
+\chapter{IMPLEMENTATION}{
+\input{ch3-impl}
+}
+
+\chapter{RESULTS}{
+\input{ch4-results}
+}
+
+\chapter{SUPPORTING MATERIALS}{
+\input{ch5-supp}
+}
+
+\chapter{CONCLUSION}{
+\input{ch6-conclusion}
+}
+
+\startbibliography
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+
+
+\end{document}
