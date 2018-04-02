@@ -1,0 +1,33 @@
+\contentsline {chapter}{LIST OF FIGURES}{vi}
+\contentsline {chapter}{LIST OF TABLES}{vii}
+\contentsline {chapter}{LIST OF ABBREVIATIONS}{viii}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ INTRODUCTION}{1}
+\contentsline {section}{\numberline {1.1}Problem}{1}
+\contentsline {section}{\numberline {1.2}Scope}{1}
+\contentsline {section}{\numberline {1.3}Classification Overview}{1}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ PREPARATORY WORK}{2}
+\contentsline {section}{\numberline {2.1}Legal History of Sexual Harassment in the United States}{2}
+\contentsline {section}{\numberline {2.2}Literature Review}{3}
+\contentsline {section}{\numberline {2.3}Data}{4}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ CLASSIFICATION METHODOLOGY}{6}
+\contentsline {section}{\numberline {3.1}Determining Relevancy}{6}
+\contentsline {section}{\numberline {3.2}Discerning the Stance}{6}
+\contentsline {section}{\numberline {3.3}Classifying types of sexual harassment}{7}
+\contentsline {subsection}{\numberline {3.3.1}Category A: Patronizing}{7}
+\contentsline {subsection}{\numberline {3.3.2}Category B: Unwanted Sexual Attention}{8}
+\contentsline {subsection}{\numberline {3.3.3}Category C: Predatory}{10}
+\contentsline {subsection}{\numberline {3.3.4}Category D: Not Enough Context}{10}
+\contentsline {section}{\numberline {3.4}Categorization Rules}{11}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ IMPLEMENTATION}{12}
+\contentsline {section}{\numberline {4.1}User Requirements}{12}
+\contentsline {section}{\numberline {4.2}Development, Design, and Deployment}{12}
+\contentsline {section}{\numberline {4.3}Architecture}{13}
+\contentsline {section}{\numberline {4.4}User Interfaces}{13}
+\contentsline {section}{\numberline {4.5}Testing and Integration}{13}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ RESULTS}{14}
+\contentsline {section}{\numberline {5.1}Accuracy}{14}
+\contentsline {section}{\numberline {5.2}Self Evaluation}{14}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ SUPPORTING MATERIALS}{15}
+\contentsline {section}{\numberline {6.1}Survey}{15}
+\contentsline {section}{\numberline {6.2}Findings}{15}
+\contentsline {chapter}{\relax \fontsize {10}{12}\selectfont \abovedisplayskip 10\p@ plus2\p@ minus5\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6\p@ plus3\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ \leftmargin \leftmargini \parsep 4\p@ plus2\p@ minus\p@ \topsep 8\p@ plus2\p@ minus4\p@ \itemsep 4\p@ plus2\p@ minus\p@ CONCLUSION}{16}
