@@ -1,0 +1,70 @@
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=gray!70]
+\tikzstyle{other} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=gray!50]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!15]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!15]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!40]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\begin{adjustwidth*}{}{-5em}
+
+\begin{tikzpicture}[node distance=1.7cm]
+
+    \node (start) [startstop, yshift=-.5cm, xshift=-2cm] {Start};
+
+    \node (in1) [io, below of=start] {Original Data};
+
+    \node (men) [process, right of=in1, yshift=0.6cm, xshift=3cm] {Tagged by Men};
+
+    \node (women) [process, right of=in1, yshift=-0.6cm, xshift=3cm] {Tagged by Women};
+
+    \node (compare) [decision, right of=in1, xshift=7cm] {Compare};
+
+    \node (handtagged) [process, right of=compare, xshift=2cm] {Hand-tagged Data};
+
+    \node (remove) [other, below of=women, yshift=-1cm, xshift=4cm] {Remove URLs, stop words, etc.};
+
+    \node (tokenize) [other, left of=remove, yshift=0cm, xshift=-3.5cm] {Tokenize};
+
+    \node (vector) [other, left of=tokenize, yshift=0cm, xshift=-2.5cm] {Vectorize};
+
+    \node (split) [process, below of=vector, yshift=-1.5cm, xshift=0cm] {Split into Test/Train};
+
+    \node (train) [process, right of=split, yshift=0cm, xshift=2.5cm] {ML Algorithm};
+
+    \node (stacc) [process, right of=train, yshift=0cm, xshift=2.5cm] {Study Accuracy};
+
+    \node (eval) [decision, right of=stacc, yshift=0cm, xshift=4cm] {Good Enough?};
+
+    \node (opt) [process, above of=eval, yshift=1.25cm, xshift=0cm] {Optimization};
+
+    \node (report) [process, below of=stacc, yshift=0cm, xshift=0cm] {Report Findings};
+
+    \node (end) [startstop, below of=train, yshift=0cm, xshift=0cm] {End};
+
+
+    \draw [arrow] (start) -- (in1);
+    \draw [arrow] (in1) -- (men);
+    \draw [arrow] (in1) -- (women);
+    \draw [arrow] (men) -- (compare);
+    \draw [arrow] (women) -- (compare);
+    \draw [arrow] (compare) -- (handtagged);
+    \draw [arrow] (handtagged) -- node[anchor=east]{Preprocessing Phase}(remove);
+    \draw [arrow] (remove) -- (tokenize);
+    \draw [arrow] (tokenize) -- (vector);
+    \draw [arrow] (vector) -- node[anchor=west]{Training Phase}(split);
+    \draw [arrow] (split) -- (train);
+    \draw [arrow] (train) -- (stacc);
+    \draw [arrow] (stacc) -- (eval);
+    \draw [arrow] (eval) -- node[anchor=north]{Yes}(report);
+    \draw [arrow] (eval) -- node[anchor=west]{No}(opt);
+    \draw [arrow] (opt) -- node[anchor=west]{Repeat}(handtagged);
+    \draw [arrow] (report) -- (end);
+
+
+
+    %\draw [arrow] (split) -- node[anchor=south]{Induction}node[anchor=north]{80\% of Data} (learnmod);
+
+
+    \end{tikzpicture}
+
+\end{adjustwidth*}

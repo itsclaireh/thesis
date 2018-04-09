@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{olemiss}
 \usepackage{setspace}
+\usepackage[nolist,nohyperlinks]{acronym}
+\usepackage[acronym]{glossaries}
 \usepackage{acronym}
 \usepackage{booktabs, siunitx}
 \usepackage[svgnames,table]{xcolor}
@@ -10,6 +12,10 @@
 \usepackage{float}
 \restylefloat{table}
 \usepackage{array}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains,shapes.geometric}
+\usepackage{changepage}
 
 \begin{document}
 
@@ -31,6 +37,8 @@
 \startabstractpage {
 \input{pre2-abstract}
 }
+
+\input{pre3-abbr}
 
 \producetableofcontents{}
 \listoffigures

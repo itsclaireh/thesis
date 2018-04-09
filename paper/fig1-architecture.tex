@@ -1,0 +1,57 @@
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=gray!50]
+\tikzstyle{other} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=gray!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!15]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!15]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=gray!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\begin{tikzpicture}[node distance=1.7cm]
+
+\node (start) [startstop, yshift=-.5cm] {Start};
+
+\node (in1) [io, below of=start] {Original Data};
+
+
+\node (split) [decision, below of=in1, yshift=-0.5cm] {Split};
+
+\node (test1) [process, below of=split, yshift=-0.5cm] {Test Set};
+
+\node (learnmod) [process, right of=split, xshift=3.5cm] {Learn model};
+
+\node (model) [process, right of=learnmod, xshift=2.25cm] {Model};
+
+\node (applymod) [process, right of=test1, xshift=7.5cm] {Apply model};
+
+\node (test2) [process, below of=test1, yshift=-0.25cm] {Test Set - Labeled};
+
+\node (test3) [process, below of=applymod, yshift=-0.25cm] {Test Set - Unlabeled};
+
+\node (compare) [decision, below of=test2, xshift=4.5cm,yshift=-.5cm] {Compare};
+
+\node (eval) [process, below of=compare, yshift=-0.5cm] {Evaluate Accuracy};
+
+\node (MLalg) [other, above of=model, xshift=1cm] {Apply Algorithm};
+
+\node (rules) [other, above of=learnmod, xshift=0cm] {Classification Rules};
+
+\node (end) [startstop, below of=eval] {End};
+
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (split);
+\draw [arrow] (split) -- node[anchor=south]{Induction}node[anchor=north]{80\% of Data} (learnmod);
+\draw [arrow] (split) -- node[anchor=west]{20\% of Data} (test1);
+\draw [arrow] (learnmod) -- (model);
+\draw [arrow] (model) -- (applymod);
+\draw [arrow] (test1) -- node[anchor=west]{Keep Classification} (test2);
+\draw [arrow] (applymod) -- node[anchor=west]{Deduction} (test3);
+\draw [arrow] (test2) -- (compare);
+\draw [arrow] (test2) -- node[anchor=south]{Remove Classification} (test3);
+\draw [arrow] (test3) -- (compare);
+\draw [arrow] (compare) -- (eval);
+\draw [arrow] (MLalg) -- (learnmod);
+\draw [arrow] (rules) -- (learnmod);
+\draw [arrow] (eval) -- (end);
+
+\end{tikzpicture}

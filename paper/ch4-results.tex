@@ -1,9 +1,182 @@
-none because I'm a failure
-
 \section{Accuracy}
 
-//todo
+This section displays the accuracy obtained for each label and classification. Different classification algorithms were used to compare the relative accuracy, and the individual results of each of these are within their own subsections.
 
-\section{Self Evaluation}
+When evaluating the accuracy of a classifier, there are four possible results for the classification attempt: True Positives, True Negatives, False Positives, and False Negatives. These parameters are used when evaluating the accuracy and reliability of the classifier.
 
-//todo
+\begin{table}[H]
+    \centering
+    \caption{Positive and Negative Classifier Terms}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{b{1cm} b{2.5cm} b{3.5cm} b{3.5cm}}
+        \toprule
+        \multicolumn{2}{c}{} &
+        \multicolumn{2}{c}{\textbf{Predicted Class}}\\
+        \cmidrule(lr){3-4}
+        \rowcolor{White}\textbf{} & {\textbf{}} & {Class=Yes} & {Class=No} \\
+        \midrule
+        \textbf{Actual} & \multicolumn{1}{c}{Class=Yes} & {True Positive (TP)} & {False Negative (FN)}\\
+        \rowcolor{White}\textbf{Class} & \multicolumn{1}{c}{Class=No} & {False Positive (FP)} & {True Negative (TN)}\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Accuracy is defined as the sum of the True Positives and True Negatives over the number of classification possibilities (Accuracy = (TP+TN)/(TP+TN+FP+FN)). Precision deviates slightly in that it describes the ratio of true results over the number of positive classification attempts made (Precision = TP/(TP+FP)). Recall is similar to precision, but describes the ratio of true positives over all of the positive observations in the class (Recall = TP/(TP+FP)). The F1-Score is the harmonic mean, or weighted average, of the precision and recall values and takes both false positives and false negatives into the evaluation (F1-Score = 2*(recall*precision)/(recall+precision)).
+
+\subsection{Support Vector Machine}
+
+The following tables detail the success in accuracy of the SVM classification algorithm.
+
+\begin{table}[H]
+    \centering
+    \caption{SVM Accuracy - Related}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Relevant & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Irrelevant & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{SVM Accuracy - Stance}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Support & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Against & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Neutral & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{SVM Accuracy - Harassment Category}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Patronizing & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Unwanted Sexual Attention & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Predatory & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Not Enough Context & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Naive-Bayesian}
+
+\begin{table}[H]
+    \centering
+    \caption{Naive-Bayes Accuracy - Related}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Relevant & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Irrelevant & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Naive-Bayes Accuracy - Stance}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Support & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Against & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Neutral & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Naive-Bayes Accuracy - Harassment Category}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{4.5cm} m{1.5cm} m{1.1cm} m{1.6cm} m{1.5cm}}
+        \toprule
+        \rowcolor{White}\textbf{Classification} & {\textbf{Precision}} & {\textbf{Recall}} & {\textbf{F1-Score}} & {\textbf{Support}} \\
+                \midrule
+        Patronizing & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Unwanted Sexual Attention & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Predatory & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+        Not Enough Context & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+         & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}Average/Total & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{ }\\
+
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Accuracy Improvements}
+
+Each label had at least one category that occurred significantly more frequently than the other categories. When determining relevancy, X\% of the original data was categorized as \textit{relevant} while only X\% of the data was categorized as \textit{irrelevant}. When determining stance, Y\% of the original data was categorized as being in \textit{support} but only Y\% of the data was categorized as being \textit{against} and only Y\% of the data  categorized as being \textit{neutral}. When classifying the type of sexual harassment, Z\% of the original data was classified as being \textit{predatory}, Z\% of the data was classified as being \textit{unwanted sexual attention}, Z\% of the data was classified as being \textit{predatory}, and Z\% of the data was classified as \textit{not enough context}. These were not proportional training sets. Consequently, changes were made to improve performance, and this process included the arbitrary reduction of the predominant category from the training set in order to have comparable training sets for each category. Table 5.8 contains the results for improvements in efficiency for the reduction of each major category.
+
+\begin{table}[H]
+    \centering
+    \caption{Category Reduction}
+    \rowcolors{2}{Gray!20}{White}
+    \begin{tabular}{m{2cm} m{2cm} m{1.9cm} m{2.4cm}}
+        \toprule
+        \rowcolor{White}\textbf{Percentage} & {\textbf{Remaining}} & {\textbf{Improved}} & {\textbf{Percent}}  \\
+        \rowcolor{White}\textbf{Eliminated} & {\textbf{Quantity}} & {\textbf{Precision}} & {\textbf{Increase}}  \\
+                \midrule
+
+        %\multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}\multicolumn{4}{c}{\textbf{Support}} \\
+        \cmidrule(lr){1-4}
+        \multicolumn{1}{c}{10\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{30\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{40\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{50\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{60\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} \\
+        \rowcolor{White}\multicolumn{4}{c}{\textbf{Relevant}} \\
+        \cmidrule(lr){1-4}
+        \multicolumn{1}{c}{10\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{30\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{40\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{50\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{60\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+
+        \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c}{}\\
+        \rowcolor{White}\multicolumn{4}{c}{\textbf{Not Enough Context}} \\
+        \cmidrule(lr){1-4}
+        \multicolumn{1}{c}{10\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{30\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{40\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{50\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \multicolumn{1}{c}{60\%} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} & \multicolumn{1}{c}{0.00} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

@@ -1,20 +1,10 @@
 \section{User Requirements}
 
-The objective of this program is to classify tweets using the \#MeToo hashtag, and the core is to output a categorization that is as accurate as possible. The program will attach three levels of classification to each tweet. In detail, the classification requirements are:
-
-1)  The first check is asking whether or not the tweet is relevant to the \#MeToo movement and awarded either a 1 or 2 (tweets in languages other than English are eliminated from the dataset).
-
-2) The second check determines whether or not the tweet is in support of the movement, against the movement, or questioning the movement and awarded a 1, 2, or 3 accordingly. If there is not enough information to make this determination, this variable is left blank. If the tweet is expressing an experience, at this stage it should be awarded a 1.
-
-3) The third check attempts to categorize the specific type of harassment. If there is not enough context, or if the tweet is merely \#MeToo without other context, it is categorized with a D. If the tweet is expressing an experience with sexist or patronizing behavior, it is marked A. If the tweet is expressing an experience with unwanted sexual attention, it is marked B. If the tweet is expressing an experience with predatory behavior, it is marked C.
-
-There are more factors considered when categorizing a tweet. Only text within the tweet will be reviewed with the use of this program; no images, or links to text on other sites will be included. Tweets that do not contain enough context to properly categorize them will have the categorizations left blank accordingly and stop at whatever check they reached. Words contained within other hashtags will be included when evaluating context, but the words contained within username mentions will not be considered. Experiences that occurred when the victim was a minor will be categorized as predatory, and ambiguous descriptions using the \#MeToo hashtag are categorized as not having enough context. Some samples are provided below:
-
-*will be a figure one day*
+The objective of this program is to classify tweets using the \#MeToo hashtag, and the core goal is to output a categorization that is as accurate as possible. The classification index of harassment and the ground truth dataset built will help the program ascertain three levels of classification to each tweet. This thesis also contains an evaluate of the classifier model. The last requirement is to build an online UI such that anyone can upload their dataset and, if formatted properly, receive the categorization results of the classifier.
 
 \section{Development, Design, and Deployment}
 
-This project is written with the Python programming language, using the NLTK, spaCy, and and pandas libraries for language processing and the scikit-learn library for classification algorithms. Jupityr will be used to handle the preprocessing and exporting of the dataset. Matplotlib has been used be used for basic visualizations using the completed dataset. Python was chosen for its flexibility from the high quantity of libraries available to assist in natural language processing and for supervised machine learning.
+This project is written with the Python programming language, chosen for its flexibility from the high quantity of libraries available to assist in natural language processing and for supervised machine learning. The pandas library was used to handle the datasets through DataFrame objects, NLTK was used for its text pre-processing features, and spaCy for more powerful prep-processing features. The scikit-learn library was used for classification algorithms and . Jupityr will be used to handle the preprocessing and exporting of the dataset. Matplotlib has been used be used for basic visualizations using the completed dataset.
 
 
 Dr. Hassan has already collected the dataset, which amasses to approximately half a million tweets of data. Currently, I have manually labeled 1,000 of the tweets according to the proper categorization with the intention to raise that number up to 10,000 manually labeled tweets for the purposes of supervised machine learning. To verify the integrity of my categorization definitions, multiple volunteers of both genders are categorizing the dataset alongside me. The project is hosted on my personal GitHub account under the username “claireballoon”.
@@ -23,14 +13,28 @@ While the program can categorize a local dataset simply by running it in Python3
 
 \section{Architecture}
 
-The overall architecture is very simple. It requires the raw data, the properly formatted dataset, the natural language processing and machine-learning algorithms, the formatted categorization results, and the visualizations that can be made from those results. The process flows linearly.
+Supervised machine learning first requires the raw data to be properly formatted as needed as well as manually classified in order to form a reliable training set. The original, classified set of data is broken up into two sets of roughly 20\% (test set) and 80\% (train set) of the original. The train set is used alongside the classification rules and machine-learning algorithm being used to develop the model. The test set is used twice: once with the classification removed to which the model is applied, and once at the end with the classification kept in order to compare the accuracy.
+\hfill \break
 
-//todo - figure
+\begin{figure}[H]
+\input{fig1-architecture}
+\caption{Supervised Machine Learning Architecture}
+\end{figure}
+
 
 \section{User Interfaces}
 
-At this time, the implementation of the project only requires use of Python, the command line, and a text file with the dataset of tweets formatted properly (ID of the tweet and the text). The program will then output a new file with the categorizations and possibly some visualizations. In addition to creating visualizations with the user’s data, the master dataset would have utility in being posted publicly so that others researching sexual harassment can use the categorized data in their work. The easy, next step is to create an online interface that doesn’t require the user to categorize their dataset locally.
+There are two ways to apply the model. The user can use the command line and a csv file with the dataset of tweets formatted properly (ID of the tweet and the text contained within the tweet). The program will then output a new file with the categorizations and possibly some visualizations. However, this requires the installation of Python3 as well as libraries, packages, and dependencies and can be an inefficient process. Therefore, an online UI has been built that allows the user to see the display of findings and to explore the tool as a testing feature.
 
 \section{Testing and Integration}
 
-The manual labeling of tweets will be used to verify whether or not the program has successfully categorized the tweets. By manually categorizing a large enough dataset (goal set for 10,000), it can be determined with a high degree of accuracy how successful the algorithm and project will be. 
+The initial hand-tagged tweets will be used to verify whether or not the program has successfully categorized the tweets. By manually categorizing a large enough data set, it can be determined with a high degree of accuracy how successful the algorithm and project will be. Figure 4.2 shows the algorithmic flow in optimizing and testing the accuracy of a model.
+
+\begin{figure}[H]
+    \input{fig2-testintegration}
+    \caption{Testing and Integration Flow}
+\end{figure}
+
+The models are repeatedly tweaked and optimized until a satisfactory level of accuracy has been achieved. The pre-processing phase initially includes nothing, but after the overall pipeline has been established is continuously revisited and hyper-tuned. This includes the removal of stop words (ex. ....), removal of URLs, removal of username mentions beginning with the @ symbol, the removal of other punctuation, and more. The pre-procesing phase also tokenizes the tweets into ``tokens" that create the vocabulary. From there, the vocabulary is vectorized and each token is weighted with its value in the dictionary.
+
+In the training phase, the dataset is split into a train and test set. A machine learning algorithm (SVM, Naive-Bayes, etc.) is applied to the training set with the new vocabulary established during the pre-processing phase, and the test set is used to evaluate the accuracy of that model. If the desired accuracy is not achieved, there are optimization options available, such as hyper parameter tuning. 
