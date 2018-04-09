@@ -44,3 +44,15 @@ def compare_and_load_datasets(file1, file2):
     #thresh 3 means keep rows with at least 3 non-NaN values (id, text, and at least 1 other)
     df = df.dropna(axis=0, thresh=3);
     return(df);
+
+def remove_NEC(dfOld):
+    ix=range(0,len(dfOld));
+    col=['id_str','text','related','stance','category'];
+    df = pd.DataFrame(index=ix,columns=col);
+
+    for index, row in df.iterrows():
+        if row.category == '1' or row.category=='2' or row.category=='3':
+            df.at[index,'category'] = row.category;
+
+    df = df.dropna(axis=0, thresh=3);
+    return df;
