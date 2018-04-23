@@ -2,8 +2,8 @@
 from DataFrameImputer import *;
 from clean import clean_tweet;
 from compare import compare_and_load_datasets, remove_NEC, load_file;
-from svm import svm_results, svm_results_stance, svm_results_related, svm_results_category_noNEC;
-from naivebayes import nb_results_category, nb_results_category_noNEC;
+from svm import svm_results;
+from naivebayes import nb_results;
 
 import pandas as pd
 
@@ -47,13 +47,14 @@ svm_results(df, 'related');
 svm_results(df, 'stance');
 svm_results(df, 'category');
 
+nb_results(df, 'related');
+nb_results(df, 'stance');
+nb_results(df, 'category');
 
-
-nb_results_category(df);
-
-
-#df_no_NEC = df.loc[df.category != '4']
-#df_no_NEC = remove_NEC(df);
+print('Remove category Not Enough Context to see if that helps...');
+df_no_NEC = df.loc[df.category != '4']
+svm_results(df_no_NEC, 'category');
+nb_results(df_no_NEC, 'category');
 #print(len(df_no_NEC.groupby(by='category')))
 #svm_results_category_noNEC(df_no_NEC);
 
