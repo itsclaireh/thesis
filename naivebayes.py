@@ -9,7 +9,7 @@ from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 
 
-def nb_results(df, classLabel, y):
+def nb_results(df, classLabel, TFIDF=None):
     print('\t\t\t*******NAIVE BAYES*******');
     print('\t\t\tCLASS:\t{0}'.format(classLabel));
 
@@ -28,30 +28,62 @@ def nb_results(df, classLabel, y):
     #split into training
     xtrain, xtest, ytrain, ytest = train_test_split(X,Y,test_size=0.2);
 
-    tfidf_transformer = TfidfTransformer();
-    X_tfidf = tfidf_transformer.fit_transform(xtrain);
+    #IF YOU PASS IN SOMETHING FOR TFIDF, DON'T USE TFIDF
+    if TFIDF!=None:
+        #tfidf_transformer = TfidfTransformer();
+        #X_tfidf = tfidf_transformer.fit_transform(xtrain);
 
-    clf = MultinomialNB();
-    clf.fit(X_tfidf,ytrain);
+        clf = MultinomialNB();
+        clf.fit(xtrain,ytrain);
 
-    #prediction
-    ypredicted=clf.predict(xtest);
+        #prediction
+        ypredicted=clf.predict(xtest);
 
-    '''
-    print('X Shape:\t{0}'.format(X.shape));
-    print('Y Shape:\t{0}'.format(Y.shape));
-    print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
-    print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
-    print('X TFIDF:\t{0}'.format(X_tfidf.shape));
-    '''
+        '''
+        print('X Shape:\t{0}'.format(X.shape));
+        print('Y Shape:\t{0}'.format(Y.shape));
+        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+        print('X TFIDF:\t{0}'.format(X_tfidf.shape));
+        '''
 
-    if classLabel == 'category':
-        target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
-    elif classLabel == 'stance':
-        target_names = ['Support','Against','Neutral'];
-    elif classLabel == 'related':
-        target_names = ['Relevant','Irrelevant'];
+        if classLabel == 'category':
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
+        elif classLabel == 'stance':
+            target_names = ['Support','Against','Neutral'];
+        elif classLabel == 'related':
+            target_names = ['Relevant','Irrelevant'];
+        else:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+
+        print(classification_report(ytest, ypredicted, target_names=target_names));
+
+    #BY DEFAULT, USE TFIDF
     else:
-        target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+        tfidf_transformer = TfidfTransformer();
+        X_tfidf = tfidf_transformer.fit_transform(xtrain);
 
-    print(classification_report(ytest, ypredicted, target_names=target_names));
+        clf = MultinomialNB();
+        clf.fit(X_tfidf,ytrain);
+
+        #prediction
+        ypredicted=clf.predict(xtest);
+
+        '''
+        print('X Shape:\t{0}'.format(X.shape));
+        print('Y Shape:\t{0}'.format(Y.shape));
+        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+        print('X TFIDF:\t{0}'.format(X_tfidf.shape));
+        '''
+
+        if classLabel == 'category' and len(df.columns)==3:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
+        elif classLabel == 'stance':
+            target_names = ['Support','Against','Neutral'];
+        elif classLabel == 'related':
+            target_names = ['Relevant','Irrelevant'];
+        else:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+
+        print(classification_report(ytest, ypredicted, target_names=target_names));

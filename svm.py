@@ -5,10 +5,11 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import precision_recall_fscore_support as score
 from sklearn import svm
 from sklearn.metrics import classification_report
+from sklearn.svm import LinearSVC
 import numpy as np
 
 
-def svm_results(df, classLabel, y):
+def svm_results(df, classLabel, TFIDF=None):
     print('\t\t\t*******SVM*******');
     print('\t\t\tCLASS:\t{0}'.format(classLabel));
 
@@ -26,36 +27,71 @@ def svm_results(df, classLabel, y):
     #split into training
     xtrain, xtest, ytrain, ytest = train_test_split(X,Y,test_size=0.2);
 
-    #tfidf
-    tfidf_transformer = TfidfTransformer()
-    X_train_tfidf = tfidf_transformer.fit_transform(xtrain)
+    #IF YOU PASS IN SOMETHING FOR TFIDF, DON'T USE TFIDF
+    if TFIDF!=None:
+        #no TFIDF
+        #GridSearchCV
+        #algorithm
+        clf=LinearSVC(random_state=0);
+        clf.fit(xtrain,ytrain);
 
-    #GridSearchCV
-    #algorithm
-    clf=svm.SVC(kernel='poly'); ##paramters
-    clf.fit(X_train_tfidf,ytrain);
+        #prediction
+        ypredicted=clf.predict(xtest);
 
-    #prediction
-    ypredicted=clf.predict(xtest);
+        '''
+        print('X Shape:\t{0}'.format(X.shape));
+        print('Y Shape:\t{0}'.format(Y.shape));
+        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+        print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
+        '''
 
-    '''
-    print('X Shape:\t{0}'.format(X.shape));
-    print('Y Shape:\t{0}'.format(Y.shape));
-    print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
-    print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
-    print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
-    '''
-    
-    if classLabel == 'category':
-        target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
-    elif classLabel == 'stance':
-        target_names = ['Support','Against','Neutral'];
-    elif classLabel == 'related':
-        target_names = ['Relevant','Irrelevant'];
+        if classLabel == 'category' and len(df.columns)==3:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
+        elif classLabel == 'stance':
+            target_names = ['Support','Against','Neutral'];
+        elif classLabel == 'related':
+            target_names = ['Relevant','Irrelevant'];
+        else:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+
+        print(classification_report(ytest, ypredicted, target_names=target_names));
+
+        #evaluate ourselves
+        precision, recall, fscore, support = score(ytest, ypredicted)
+
+    #BY DEFAULT, USE TFIDF
     else:
-        target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+        #tfidf
+        tfidf_transformer = TfidfTransformer()
+        X_train_tfidf = tfidf_transformer.fit_transform(xtrain)
 
-    print(classification_report(ytest, ypredicted, target_names=target_names));
+        #GridSearchCV
+        #algorithm
+        clf=LinearSVC(random_state=0);
+        clf.fit(X_train_tfidf,ytrain);
 
-    #evaluate ourselves
-    precision, recall, fscore, support = score(ytest, ypredicted)
+        #prediction
+        ypredicted=clf.predict(xtest);
+
+        '''
+        print('X Shape:\t{0}'.format(X.shape));
+        print('Y Shape:\t{0}'.format(Y.shape));
+        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+        print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
+        '''
+
+        if classLabel == 'category':
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
+        elif classLabel == 'stance':
+            target_names = ['Support','Against','Neutral'];
+        elif classLabel == 'related':
+            target_names = ['Relevant','Irrelevant'];
+        else:
+            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+
+        print(classification_report(ytest, ypredicted, target_names=target_names));
+
+        #evaluate ourselves
+        precision, recall, fscore, support = score(ytest, ypredicted)
