@@ -53,23 +53,22 @@ print('Neutral:\t\t{0}'.format(len(df_st3)));
 print('\n');
 
 
-#svm_results(df, 'related');
-#svm_results(df, 'stance');
+svm_results(df, 'related');
+svm_results(df, 'stance');
 svm_results(df, 'category');
 
-#nb_results(df, 'related');
-#nb_results(df, 'stance');
-#nb_results(df, 'category');
+nb_results(df, 'related');
+nb_results(df, 'stance');
+nb_results(df, 'category');
 
 print('\t\tREMOVING NOT ENOUGH CONTEXT');
 df_no_NEC = df.loc[df.category != '4']
 svm_results(df_no_NEC, 'category',True);
-#nb_results(df_no_NEC, 'category',True);
+nb_results(df_no_NEC, 'category',True);
 
 
 '''
 TO DO
-
 iteratively
 use 1-9 as training and only test on 1
 use 1-8 as training and only test on 2
