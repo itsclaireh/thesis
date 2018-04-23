@@ -1,12 +1,15 @@
 import pandas as pd
 
+def load_file(filename):
+
+    df = pd.read_csv(filename,header=None,index_col=None,encoding='latin1',dtype='str');
+    df.columns=['id_str','text','related','stance','category'];
+    return df;
+
 def compare_and_load_datasets(file1, file2):
 
-    dfmen = pd.read_csv(file1,header=None,index_col=None,encoding='latin1',dtype='str');
-    dfmen.columns=['id_str','text','related','stance','category'];
-
-    dfwomen = pd.read_csv(file2,header=None,index_col=None,encoding='latin1',dtype='str');
-    dfwomen.columns=['id_str','text','related','stance','category'];
+    dfmen = load_file(file1);
+    dfwomen = load_file(file2);
 
     #create the df to return
     #we want anything else to be NaN

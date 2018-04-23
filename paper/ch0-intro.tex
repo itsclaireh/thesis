@@ -12,14 +12,17 @@ This thesis only covers a basic classification implementation and also provides 
 
 \section{Overview}
 
-\subsection{Natural Language Processing (NLP)}
+\subsection{Natural-Language Processing (NLP)}
 
-blah
+Natural Language Processing is a domain of computer science that applies computer or machine intelligence to understand, process, and use language that has developed naturally in human use in accurate applications. NLP can deal with language whether it is written, typed, or spoken, but this thesis only concerns language as it has been typed and posted in tweets from the social media site Twitter.
 
 \subsection{Supervised Machine Learning}
 
-blah
+Machine learning regards the domain of computer science that develops programs and algorithms that make decisions that improve based on the data given to them to learn from. The algorithms by design have not been programmed with the improvements; rather, they have been programmed to incorporate the data to improve themselves.
+Supervised and unsupervised machine learning are two different approaches to the ML process. Unsupervised machine learning does not have outcomes fed to the algorithm to ``teach" the program how to respond to data and instead relies on techniques such as clustering to make inferences regarding the structure behind the data. Conversely, supervised machine learning uses a set of data with the desired output specified, and the algorithm is left to determine the mapping function to get the accurate or desired output from any given input.
+
+This thesis uses supervised machine learning by providing the ML algorithms data containing the tweet and the appropriate classifications (regarding the relevancy, stance, and category of harassment of the tweet). The different NLP machine learning algorithms implemented use the tweet to make associations between the words contained in it and the subsequent classifications.
 
 \subsection{Classification Model}
 
-blah
+A classification model makes conclusions about unseen data and predicts the output based upon what the model has already observed and learned from. In order to develop a classification model for this thesis, the rules for classifying tweets by their relevancy, stance, and category of sexual harassment had to be developed. To train the model, a large number (**to be replaced with actual amount when finished) of tweets were manually hand-tagged by humans according to the classification rules. Then, this model was used in various algorithms with varying degrees of accuracy and success.
