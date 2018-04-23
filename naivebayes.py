@@ -5,11 +5,11 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.metrics import precision_recall_fscore_support as score
 from sklearn import svm
 from sklearn.metrics import classification_report
-
 from sklearn.naive_bayes import MultinomialNB
+import numpy as np
 
 
-def nb_results(df, classLabel):
+def nb_results(df, classLabel, y):
     print('\t\t\t*******NAIVE BAYES*******');
     print('\t\t\tCLASS:\t{0}'.format(classLabel));
 
@@ -22,29 +22,28 @@ def nb_results(df, classLabel):
     #vectorize
     count_vect=CountVectorizer(); ##pass parameters here
     X = count_vect.fit_transform(df.text);
-    #print('\nX shape:')
-    #print(X.shape);
     Y = df[[classLabel]];
-    #print('Y shape:')
-    #print(Y.shape);
-
-    tfidf_transformer = TfidfTransformer();
-    X_tfidf = tfidf_transformer.fit_transform(X);
+    Y = np.ravel(Y);
 
     #split into training
-    xtrain, xtest, ytrain, ytest = train_test_split(X_tfidf,Y,test_size=0.2);
-    #print('\nXtrain, Ytrain:');
-    #print (xtrain.shape, ytrain.shape);
-    #print('Xtest, Ytest:');
-    #print (xtest.shape, ytest.shape);
+    xtrain, xtest, ytrain, ytest = train_test_split(X,Y,test_size=0.2);
 
-
+    tfidf_transformer = TfidfTransformer();
+    X_tfidf = tfidf_transformer.fit_transform(xtrain);
 
     clf = MultinomialNB();
-    clf.fit(X,Y);
+    clf.fit(X_tfidf,ytrain);
 
     #prediction
     ypredicted=clf.predict(xtest);
+
+    '''
+    print('X Shape:\t{0}'.format(X.shape));
+    print('Y Shape:\t{0}'.format(Y.shape));
+    print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+    print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+    print('X TFIDF:\t{0}'.format(X_tfidf.shape));
+    '''
 
     if classLabel == 'category':
         target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];

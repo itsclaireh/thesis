@@ -24,8 +24,12 @@ def remove_weird_urls(tweet):
     tweet = re.sub('(pic).*?(twitter).*?(com)','',tweet);
     return tweet;
 
+def remove_nonUTF8(tweet):
+    return tweet.decode('unicode_escape').encode('ascii','ignore');
+
 def clean_tweet(tweet):
         tweet = tweet.lower();
+        #tweet = remove_nonUTF8(tweet);
         tweet = strip_links(tweet);
         tweet = remove_weird_urls(tweet);
 
