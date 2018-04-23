@@ -59,12 +59,12 @@ svm_results(df, 'category');
 
 #nb_results(df, 'related');
 #nb_results(df, 'stance');
-nb_results(df, 'category');
+#nb_results(df, 'category');
 
-print('REMOVING NOT ENOUGH CONTEXT');
+print('\t\tREMOVING NOT ENOUGH CONTEXT');
 df_no_NEC = df.loc[df.category != '4']
-svm_results(df_no_NEC, 'category');
-nb_results(df_no_NEC, 'category');
+svm_results(df_no_NEC, 'category',True);
+#nb_results(df_no_NEC, 'category',True);
 
 
 '''

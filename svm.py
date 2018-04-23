@@ -9,7 +9,7 @@ from sklearn.svm import LinearSVC
 import numpy as np
 
 
-def svm_results(df, classLabel, TFIDF=None):
+def svm_results(df, classLabel, NEC=None):
     print('\t\t\t*******SVM*******');
     print('\t\t\tCLASS:\t{0}'.format(classLabel));
 
@@ -27,71 +27,38 @@ def svm_results(df, classLabel, TFIDF=None):
     #split into training
     xtrain, xtest, ytrain, ytest = train_test_split(X,Y,test_size=0.2);
 
-    #IF YOU PASS IN SOMETHING FOR TFIDF, DON'T USE TFIDF
-    if TFIDF!=None:
-        #no TFIDF
-        #GridSearchCV
-        #algorithm
-        clf=LinearSVC(random_state=0);
-        clf.fit(xtrain,ytrain);
+    #tfidf
+    tfidf_transformer = TfidfTransformer();
+    X_train_tfidf = tfidf_transformer.fit_transform(xtrain);
 
-        #prediction
-        ypredicted=clf.predict(xtest);
+    #GridSearchCV
+    #algorithm
+    clf=LinearSVC(random_state=0, C=1.0,);
+    clf.fit(X_train_tfidf,ytrain);
 
-        '''
-        print('X Shape:\t{0}'.format(X.shape));
-        print('Y Shape:\t{0}'.format(Y.shape));
-        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
-        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
-        print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
-        '''
+    #prediction
+    ypredicted=clf.predict(xtest);
 
-        if classLabel == 'category' and len(df.columns)==3:
-            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
-        elif classLabel == 'stance':
-            target_names = ['Support','Against','Neutral'];
-        elif classLabel == 'related':
-            target_names = ['Relevant','Irrelevant'];
-        else:
-            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
-
-        print(classification_report(ytest, ypredicted, target_names=target_names));
-
-        #evaluate ourselves
-        precision, recall, fscore, support = score(ytest, ypredicted)
-
-    #BY DEFAULT, USE TFIDF
-    else:
-        #tfidf
-        tfidf_transformer = TfidfTransformer()
-        X_train_tfidf = tfidf_transformer.fit_transform(xtrain)
-
-        #GridSearchCV
-        #algorithm
-        clf=LinearSVC(random_state=0);
-        clf.fit(X_train_tfidf,ytrain);
-
-        #prediction
-        ypredicted=clf.predict(xtest);
-
-        '''
-        print('X Shape:\t{0}'.format(X.shape));
-        print('Y Shape:\t{0}'.format(Y.shape));
-        print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
-        print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
-        print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
-        '''
+    '''
+    print('X Shape:\t{0}'.format(X.shape));
+    print('Y Shape:\t{0}'.format(Y.shape));
+    print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
+    print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
+    print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
+    '''
+    if NEC==None:
 
         if classLabel == 'category':
-            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory', 'not enough context'];
+            target_names = ['Patronizing', 'Unwanted Sexual Attention', 'Predatory', 'Not Enough Context'];
         elif classLabel == 'stance':
             target_names = ['Support','Against','Neutral'];
         elif classLabel == 'related':
             target_names = ['Relevant','Irrelevant'];
         else:
-            target_names = ['Patronizing', 'unwanted sexual attention', 'predatory'];
+            print('Something is Wrong');
 
         print(classification_report(ytest, ypredicted, target_names=target_names));
 
-        #evaluate ourselves
-        precision, recall, fscore, support = score(ytest, ypredicted)
+    else:
+        target_names = ['Patronizing', 'Unwanted Sexual Attention', 'Predatory'];
+        print(classification_report(ytest, ypredicted, target_names=target_names));
