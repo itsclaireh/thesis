@@ -6,10 +6,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt; plt.rcdefaults()
 import matplotlib.pyplot as plt
-import matplotlib.backends.backend._pdf
+#import matplotlib.backends.backend._pdf
 
 def socialMediaResults(df,no):
     return df.loc[df['socialMedia']==no,['socialMedia','socialMediaOption','reportingSH','preventingSH']];
+
+def socialMediaResults2(df,no):
+    return df.loc[df['socialMedia']==no,['age','socialMedia','socialMediaOption','reportingSH','preventingSH']];
 
 df = pd.read_csv('survey-num.csv',header=None,index_col=None,encoding='utf8',dtype='str');
 #df.columns=['id_str','text','related','stance','category'];
@@ -39,3 +42,18 @@ barchartPrev(face,yout,insta,twit,snap,redd,tumbl,other);
 barchartRep(face,yout,insta,twit,snap,redd,tumbl,other);
 barStackRep(face,yout,insta,twit,snap,redd,tumbl,other);
 barStackPrev(face,yout,insta,twit,snap,redd,tumbl,other);
+answer = df[['improvementsOption']];
+#print(answer);
+answer = answer.replace(np.nan,'',regex=True)
+ans = answer.loc[answer['improvementsOption']!='',['improvementsOption']];
+
+for i, row in ans.iterrows():
+    print(row.improvementsOption);
+    print('\n');
+
+face = socialMediaResults2(responses,'1');
+yout = socialMediaResults2(responses,'2');
+insta = socialMediaResults2(responses,'3');
+twit = socialMediaResults2(responses,'4');
+snap = socialMediaResults2(responses,'5');
+redd = socialMediaResults2(responses,'6');
