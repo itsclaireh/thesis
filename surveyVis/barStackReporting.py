@@ -34,7 +34,7 @@ def barStackRep(face,yout,insta,twit,snap,redd,tumbl,other):
     proportion_idk = np.true_divide(idk,total, out=np.zeros_like(idk), where=total!=0)*100;
 
     plt.bar(ind, proportion_adeq, width=0.8, label='Not Adequate',color='#450a5cff',bottom=proportion_some+proportion_nota+proportion_idk);
-    plt.bar(ind, proportion_some, width=0.8, label='Some',color='#2d6e8eff',bottom=proportion_nota+proportion_idk);
+    plt.bar(ind, proportion_some, width=0.8, label='Somewhat',color='#2d6e8eff',bottom=proportion_nota+proportion_idk);
     plt.bar(ind, proportion_nota, width=0.8, label='Adequate',color='#49be6eff',bottom=proportion_idk);
     plt.bar(ind, proportion_idk, width=0.8, label='I don\'t know',color='#e1e329ff');
 
