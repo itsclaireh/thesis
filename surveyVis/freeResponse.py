@@ -1,7 +1,4 @@
-from barPreventing import barchartPrev
-from barReporting import barchartRep
-from barStackReporting import barStackRep
-from barStackPreventing import barStackPrev
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt; plt.rcdefaults()
@@ -67,18 +64,20 @@ print(sum(menTotals));
 print(womenTotals);
 print(sum(womenTotals));
 
-groups = ['Do Not Care','None','Victim','Privacy Conerns','Knowledge','Reporting','Administrative','Account Privacy','Discpline','Authority'];
+groups = ['Do Not Care','Not Possible','Victim\'s Responsibility to Act','No Action Due to Privacy Concerns','Increased Public Awareness','Improved Reporting Systems','Stronger Administrative Action','Improved Account Privacy','Stricter Discplinary Action','Report to Authority'];
 #groups = ['Authority','Discipline','Account Privacy','Administrative','Reporting','Knowledge','Privacy Conerns','Victim','None','Do Not Care'];
-
+x_pos = [i for i, _ in enumerate(groups)];
 N=10;
 ind = np.arange(N);
 bar_width = 0.8;
-bar1 = plt.bar(ind,totals,bar_width,color='#450a5cff',label='Total Responses');
+opacity=0.8;
+ind = np.arange(len(groups));
+bar1 = plt.barh(ind,totals,bar_width,color='#450a5cff',label='Total Responses');
 
-plt.ylabel('Number of Responses');
+plt.ylabel('Solution Type');
+plt.xlabel('Number of Responses');
 plt.title('Addressing Sexual Harassment on Social Media');
-plt.xlabel('Solution Type');
-plt.xticks(ind,groups,rotation=45, horizontalalignment='right');
+plt.yticks(ind,groups);
 plt.legend(loc='best');
 plt.tight_layout();
 
@@ -87,13 +86,13 @@ plt.savefig("pngs/FRtotals.png", bbox_inches="tight");
 plt.show();
 
 twobar_width = 0.35;
-bar2 = plt.bar(ind,menTotals,twobar_width,color='#2d6e8eff',label='Male Responses');
-bar3 = plt.bar(ind+twobar_width,womenTotals,twobar_width,color='#49be6eff',label='Female Responses');
+bar2 = plt.barh(ind,menTotals,twobar_width,color='#2d6e8eff',label='Male Responses');
+bar3 = plt.barh(ind+twobar_width,womenTotals,twobar_width,color='#49be6eff',label='Female Responses');
 
-plt.ylabel('Number of Responses per Gender Identity');
+plt.ylabel('Solution Type');
 plt.title('Addressing Sexual Harassment on Social Media');
-plt.xlabel('Solution Type');
-plt.xticks(ind+twobar_width/2,groups,rotation=45, horizontalalignment='right');
+plt.xlabel('Number of Responses per Gender Identity');
+plt.yticks(ind+twobar_width/2,groups);
 plt.legend(loc='best');
 plt.tight_layout();
 
