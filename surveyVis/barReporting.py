@@ -24,6 +24,15 @@ def barchartRep(face,yout,insta,twit,snap,redd,tumbl,other):
     adequate=(numResponses(face,'3'), numResponses(yout,'3'),numResponses(insta,'3'),numResponses(twit,'3'),numResponses(snap,'3'),numResponses(redd,'3'));
     idk=(numResponses(face,'4'), numResponses(yout,'4'),numResponses(insta,'4'),numResponses(twit,'4'),numResponses(snap,'4'),numResponses(redd,'4'));
 
+    print(numResponses(other,'1'))
+    print(numResponses(other,'3'))
+    print(numResponses(other,'4'))
+    print(numResponses(other,'5'))
+
+    print(numResponses(tumbl,'1'))
+    print(numResponses(tumbl,'2'))
+    print(numResponses(tumbl,'3'))
+    print(numResponses(tumbl,'4'))
 
     rects1=plt.bar(index, notadequate, bar_width,alpha=opacity,color='#450a5cff',label='Not adequate');
     rects1=plt.bar(index+bar_width, some, bar_width,alpha=opacity,color='#2d6e8eff',label='Somewhat');

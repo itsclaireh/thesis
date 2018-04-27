@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt; plt.rcdefaults()
 import matplotlib.pyplot as plt
+import csv
 #import matplotlib.backends.backend._pdf
 
 def socialMediaResults(df,no):
@@ -38,15 +39,28 @@ redd = socialMediaResults(responses,'6');
 tumbl = socialMediaResults(responses,'7');
 other = responses.loc[responses['socialMediaOption']!='',['socialMediaOption','preventingSH','reportingSH']];
 
-barchartPrev(face,yout,insta,twit,snap,redd,tumbl,other);
-barchartRep(face,yout,insta,twit,snap,redd,tumbl,other);
-barStackRep(face,yout,insta,twit,snap,redd,tumbl,other);
-barStackPrev(face,yout,insta,twit,snap,redd,tumbl,other);
-answer = df[['improvementsOption']];
+#barchartPrev(face,yout,insta,twit,snap,redd,tumbl,other);
+#barchartRep(face,yout,insta,twit,snap,redd,tumbl,other);
+#barStackRep(face,yout,insta,twit,snap,redd,tumbl,other);
+#barStackPrev(face,yout,insta,twit,snap,redd,tumbl,other);
+answer = df[['gender','improvementsOption']];
 #print(answer);
 answer = answer.replace(np.nan,'',regex=True)
-ans = answer.loc[answer['improvementsOption']!='',['improvementsOption']];
+ans = answer.loc[answer['improvementsOption']!='',['gender','improvementsOption']];
 
-for i, row in ans.iterrows():
-    print(row.improvementsOption);
-    print('\n');
+print('Total Responses:');
+print(len(responses))
+qualitative=ans.as_matrix();
+
+#for i, row in ans.iterrows():
+    #print(row.improvementsOption);
+    #temp=ans.values;
+    #print(temp)
+    #qualitative = np.concatenate([qualitative,temp]);
+    #print('\n');
+
+with open('improvementsOptions.csv','w+',newline='') as csvfile:
+    csvWriter = csv.writer(csvfile,delimiter=',');
+    #for i in range(0,len(qualitative)):
+    for line in qualitative:
+        csvWriter.writerow(line);
