@@ -32,7 +32,7 @@ def barchartRep(face,yout,insta,twit,snap,redd,tumbl,other):
 
     plt.xlabel('Social Media Platform');
     plt.ylabel('Number of Responses');
-    plt.title('Evaluation of Social Media\'s Mechanisms \nFor Reporting Sexual Harassment')
+    plt.title('Ability to Report Sexual Harassment')
     plt.xticks(index+bar_width*1.5, objects,rotation=45, horizontalalignment='right');
     plt.legend();
     plt.tight_layout();

@@ -28,25 +28,28 @@ def barStackPrev(face,yout,insta,twit,snap,redd,tumbl,other):
     idk=np.array([numResponses(face,'4'), numResponses(yout,'4'),numResponses(insta,'4'),numResponses(twit,'4'),numResponses(snap,'4'),numResponses(redd,'4')],dtype=float);
 
     total = adequate+some+notadequate+idk;
-    proportion_adeq = np.true_divide(adequate,total, out=np.zeros_like(notadequate), where=total!=0)*100;
+    proportion_nota = np.true_divide(notadequate,total, out=np.zeros_like(notadequate), where=total!=0)*100;
     proportion_some = np.true_divide(some,total, out=np.zeros_like(some), where=total!=0)*100;
-    proportion_nota = np.true_divide(notadequate,total, out=np.zeros_like(adequate), where=total!=0)*100;
+    proportion_adeq = np.true_divide(adequate,total, out=np.zeros_like(adequate), where=total!=0)*100;
     proportion_idk = np.true_divide(idk,total, out=np.zeros_like(idk), where=total!=0)*100;
 
-    plt.bar(ind, proportion_adeq, width=0.8, label='Not Adequate',color='#450a5cff',bottom=proportion_some+proportion_nota+proportion_idk);
-    plt.bar(ind, proportion_some, width=0.8, label='Somewhat',color='#2d6e8eff',bottom=proportion_nota+proportion_idk);
-    plt.bar(ind, proportion_nota, width=0.8, label='Adequate',color='#49be6eff',bottom=proportion_idk);
-    plt.bar(ind, proportion_idk, width=0.8, label='I don\'t know',color='#e1e329ff');
+    stat1=plt.bar(ind, proportion_nota, width=0.8, label='Not Adequate',color='#450a5cff',bottom=proportion_some+proportion_adeq+proportion_idk);
+    stat2=plt.bar(ind, proportion_some, width=0.8, label='Somewhat',color='#2d6e8eff',bottom=proportion_adeq+proportion_idk);
+    stat3=plt.bar(ind, proportion_adeq, width=0.8, label='Adequate',color='#49be6eff',bottom=proportion_idk);
+    stat4=plt.bar(ind, proportion_idk, width=0.8, label='I don\'t know',color='#e1e329ff');
 
     plt.xticks(ind, objects)
     plt.ylabel("Percentage of Responses")
     plt.xlabel("Social Media Platforms")
     #plt.legend(loc="upper right")
-    plt.title('Evaluation of Social Media\'s Mechanisms \nFor Preventing Sexual Harassment')
+    plt.title('Ability to Prevent Sexual Harassment')
     plt.ylim=1.0;
     plt.setp(plt.gca().get_xticklabels(), rotation=45, horizontalalignment='right')
     #plt.legend(bbox_to_anchor=(0,1.02,1,0.2), loc="lower left",mode='expand',ncol=4);
-    plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
+    #plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
+    plt.legend(loc='lower center', ncol=2);
+    #first_legend = plt.legend(handles=[stat1,stat2], loc=3);
+    #second_legend = plt.legend(handles=[stat3,stat4], loc=4);
 
     #plt.tight_layout();
     #fig = plt.figure(1);
