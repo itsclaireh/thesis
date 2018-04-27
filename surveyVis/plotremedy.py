@@ -88,9 +88,9 @@ x_pos = [i for i, _ in enumerate(names)];
 ind = np.arange(n);
 bar_width = 0.2;
 
-plt.barh(ind, dataMen,bar_width,color='#450a5cff',label='Men');
-plt.barh(ind-bar_width, dataWomen,bar_width,color='#2d6e8eff',label='Women');
-plt.barh(ind-bar_width*2,dataOther,bar_width,color='#49be6eff',label='Other');
+plt.barh(ind, dataMen,bar_width,color='#2d6e8eff',label='Men');
+plt.barh(ind-bar_width, dataWomen,bar_width,color='#49be6eff',label='Women');
+plt.barh(ind-bar_width*2,dataOther,bar_width,color='#e1e329ff',label='Other');
 
 #plt.barh(ind, dataAll,width,color='#e1e329ff',label='All')
 plt.ylabel('Improvement Suggestions');
@@ -109,9 +109,13 @@ pdataMen = np.true_divide(dataMen,total )*100;
 pdataWomen = np.true_divide(dataWomen,total  )*100;
 pdataOther = np.true_divide(dataOther,total)*100;
 
-new = plt.bar(x_pos,pdataMen,width=0.8,label='Men',color='#450a5cff',bottom=pdataWomen+pdataOther);
-new2 = plt.bar(x_pos,pdataWomen,width=0.8,label='Women',color='#2d6e8eff',bottom=pdataOther);
-new3 = plt.bar(x_pos,pdataOther,width=0.8,label='Other',color='#49be6eff');
+# purple - #450a5cff
+# blue - #2d6e8eff
+# green - #49be6eff
+# lime - #e1e329ff
+new = plt.bar(x_pos,pdataMen,width=0.8,label='Men',color='#2d6e8eff',bottom=pdataWomen+pdataOther);
+new2 = plt.bar(x_pos,pdataWomen,width=0.8,label='Women',color='#49be6eff',bottom=pdataOther);
+new3 = plt.bar(x_pos,pdataOther,width=0.8,label='Other',color='#e1e329ff');
 
 plt.xticks(x_pos,names,rotation=45, horizontalalignment='right');
 plt.ylabel('Number of Responses per Gender Identity');
