@@ -22,50 +22,50 @@ f_auth = f_mod = f_disc = f_acctpriv = f_admin = f_report = f_know = f_privconc 
 for i, row in df.iterrows():
 
     t_auth = t_auth+1 if '1' in row.group else t_auth;
-    t_mod = t_mod+1 if '2' in row.group else t_mod;
-    t_disc = t_disc+1 if '3' in row.group else t_disc;
-    t_acctpriv = t_acctpriv+1 if '4' in row.group else t_acctpriv;
-    t_admin = t_admin+1 if '5' in row.group else t_admin;
-    t_report = t_report+1 if '6' in row.group else t_report;
-    t_know = t_know+1 if '7' in row.group else t_know;
-    t_privconc = t_privconc+1 if '8' in row.group else t_privconc;
-    t_victim = t_victim+1 if '9' in row.group else t_victim;
-    t_none = t_none+1 if '10' in row.group else t_none;
-    t_idc = t_idc+1 if '11' in row.group else t_idc;
+    t_disc = t_disc+1 if '2' in row.group else t_disc;
+    t_acctpriv = t_acctpriv+1 if '3' in row.group else t_acctpriv;
+    t_admin = t_admin+1 if '4' in row.group else t_admin;
+    t_report = t_report+1 if '5' in row.group else t_report;
+    t_know = t_know+1 if '6' in row.group else t_know;
+    t_privconc = t_privconc+1 if '7' in row.group else t_privconc;
+    t_victim = t_victim+1 if '8' in row.group else t_victim;
+    t_none = t_none+1 if '9' in row.group else t_none;
+    t_idc = t_idc+1 if '10' in row.group else t_idc;
 
     if row.gender == '1':
         m_auth = m_auth+1 if '1' in row.group else m_auth;
-        m_mod = m_mod+1 if '2' in row.group else m_mod;
-        m_disc = m_disc+1 if '3' in row.group else m_disc;
-        m_acctpriv = m_acctpriv+1 if '4' in row.group else m_acctpriv;
-        m_admin = m_admin+1 if '5' in row.group else m_admin;
-        m_report = m_report+1 if '6' in row.group else m_report;
-        m_know = m_know+1 if '7' in row.group else m_know;
-        m_privconc = m_privconc+1 if '8' in row.group else m_privconc;
-        m_victim = m_victim+1 if '9' in row.group else m_victim;
-        m_none = m_none+1 if '10' in row.group else m_none;
-        m_idc = m_idc+1 if '11' in row.group else m_idc;
+        m_disc = m_disc+1 if '2' in row.group else m_disc;
+        m_acctpriv = m_acctpriv+1 if '3' in row.group else m_acctpriv;
+        m_admin = m_admin+1 if '4' in row.group else m_admin;
+        m_report = m_report+1 if '5' in row.group else m_report;
+        m_know = m_know+1 if '6' in row.group else m_know;
+        m_privconc = m_privconc+1 if '7' in row.group else m_privconc;
+        m_victim = m_victim+1 if '8' in row.group else m_victim;
+        m_none = m_none+1 if '9' in row.group else m_none;
+        m_idc = m_idc+1 if '10' in row.group else m_idc;
 
     if row.gender == '2':
         f_auth = f_auth+1 if '1' in row.group else f_auth;
-        f_mod = f_mod+1 if '2' in row.group else f_mod;
-        f_disc = f_disc+1 if '3' in row.group else f_disc;
-        f_acctpriv = f_acctpriv+1 if '4' in row.group else f_acctpriv;
-        f_admin = f_admin+1 if '5' in row.group else f_admin;
-        f_report = f_report+1 if '6' in row.group else f_report;
-        f_know = f_know+1 if '7' in row.group else f_know;
-        f_privconc = f_privconc+1 if '8' in row.group else f_privconc;
-        f_victim = f_victim+1 if '9' in row.group else f_victim;
-        f_none = f_none+1 if '10' in row.group else f_none;
-        f_idc = f_idc+1 if '11' in row.group else f_idc;
+        f_disc = f_disc+1 if '2' in row.group else f_disc;
+        f_acctpriv = f_acctpriv+1 if '3' in row.group else f_acctpriv;
+        f_admin = f_admin+1 if '4' in row.group else f_admin;
+        f_report = f_report+1 if '5' in row.group else f_report;
+        f_know = f_know+1 if '6' in row.group else f_know;
+        f_privconc = f_privconc+1 if '7' in row.group else f_privconc;
+        f_victim = f_victim+1 if '8' in row.group else f_victim;
+        f_none = f_none+1 if '9' in row.group else f_none;
+        f_idc = f_idc+1 if '10' in row.group else f_idc;
 
 totals = np.array([t_auth, t_disc,t_acctpriv,t_admin,t_report,t_know,t_privconc,t_victim,t_none,t_idc]);
 menTotals = np.array([m_auth,m_disc,m_acctpriv,m_admin,m_report,m_know,m_privconc,m_victim,m_none,m_idc]);
 womenTotals = np.array([f_auth,f_disc,f_acctpriv,f_admin,f_report,f_know,f_privconc,f_victim,f_none,f_idc]);
 
 print(totals);
+print(sum(totals));
 print(menTotals);
+print(sum(menTotals));
 print(womenTotals);
+print(sum(womenTotals));
 
 groups = ['Do Not Care','None','Victim','Privacy Conerns','Knowledge','Reporting','Administrative','Account Privacy','Discpline','Authority'];
 #groups = ['Authority','Discipline','Account Privacy','Administrative','Reporting','Knowledge','Privacy Conerns','Victim','None','Do Not Care'];
@@ -82,8 +82,8 @@ plt.xticks(ind,groups,rotation=45, horizontalalignment='right');
 plt.legend(loc='best');
 plt.tight_layout();
 
-plt.savefig("FRtotals.pdf", bbox_inches="tight");
-plt.savefig("FRtotals.png", bbox_inches="tight");
+plt.savefig("pdfs/FRtotals.pdf", bbox_inches="tight");
+plt.savefig("pngs/FRtotals.png", bbox_inches="tight");
 plt.show();
 
 twobar_width = 0.35;
@@ -97,6 +97,6 @@ plt.xticks(ind+twobar_width/2,groups,rotation=45, horizontalalignment='right');
 plt.legend(loc='best');
 plt.tight_layout();
 
-plt.savefig("FRtotalsgender.pdf", bbox_inches="tight");
-plt.savefig("FRtotalsgender.png", bbox_inches="tight");
+plt.savefig("pdfs/FRtotalsgender.pdf", bbox_inches="tight");
+plt.savefig("pngs/FRtotalsgender.png", bbox_inches="tight");
 plt.show();

@@ -1,7 +1,6 @@
-from barPreventing import barchartPrev
-from barReporting import barchartRep
-from barStackReporting import barStackRep
-from barStackPreventing import barStackPrev
+from preventing import barchartPrev
+from reporting import barchartRep
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt; plt.rcdefaults()
@@ -39,10 +38,11 @@ redd = socialMediaResults(responses,'6');
 tumbl = socialMediaResults(responses,'7');
 other = responses.loc[responses['socialMediaOption']!='',['socialMediaOption','preventingSH','reportingSH']];
 
-#barchartPrev(face,yout,insta,twit,snap,redd,tumbl,other);
-#barchartRep(face,yout,insta,twit,snap,redd,tumbl,other);
-#barStackRep(face,yout,insta,twit,snap,redd,tumbl,other);
-#barStackPrev(face,yout,insta,twit,snap,redd,tumbl,other);
+barchartPrev(face,yout,insta,twit,snap,redd,tumbl,other);
+barchartRep(face,yout,insta,twit,snap,redd,tumbl,other);
+
+
+'''
 answer = df[['gender','improvementsOption']];
 #print(answer);
 answer = answer.replace(np.nan,'',regex=True)
@@ -64,3 +64,4 @@ with open('improvementsOptions.csv','w+',newline='') as csvfile:
     #for i in range(0,len(qualitative)):
     for line in qualitative:
         csvWriter.writerow(line);
+'''

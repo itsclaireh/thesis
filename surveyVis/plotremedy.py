@@ -1,7 +1,3 @@
-from barPreventing import barchartPrev
-from barReporting import barchartRep
-from barStackReporting import barStackRep
-from barStackPreventing import barStackPrev
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt; plt.rcdefaults()
@@ -100,8 +96,8 @@ plt.yticks(ind-bar_width,names);
 plt.legend(loc='lower right');
 plt.tight_layout();
 
-plt.savefig("ImprovementsBar.pdf", bbox_inches="tight");
-plt.savefig("ImprovementsBar.png", bbox_inches="tight")
+plt.savefig("pdfs/ImprovementsBar.pdf", bbox_inches="tight");
+plt.savefig("pngs/ImprovementsBar.png", bbox_inches="tight")
 plt.show();
 
 total = dataMen+dataWomen+dataOther;
@@ -124,6 +120,6 @@ plt.legend(loc='upper right');
 plt.title('Improvements to Social Media');
 plt.tight_layout();
 
-plt.savefig("ImprovementsStack.pdf", bbox_inches="tight");
-plt.savefig("ImprovementsStack.png", bbox_inches="tight")
+plt.savefig("pdfs/ImprovementsStack.pdf", bbox_inches="tight");
+plt.savefig("pngs/ImprovementsStack.png", bbox_inches="tight")
 plt.show();
