@@ -67,7 +67,7 @@ print(totals);
 print(menTotals);
 print(womenTotals);
 
-groups = ['Do Not Care','None','Victim','Privacy Conerns','Knowledge','Reporting','Administrative','Account Privacy','Discpline','Moderation','Authority'];
+groups = ['Do Not Care','None','Victim','Privacy Conerns','Knowledge','Reporting','Administrative','Account Privacy','Discpline','Authority'];
 #groups = ['Authority','Discipline','Account Privacy','Administrative','Reporting','Knowledge','Privacy Conerns','Victim','None','Do Not Care'];
 
 N=10;
