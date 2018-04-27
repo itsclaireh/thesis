@@ -50,10 +50,3 @@ ans = answer.loc[answer['improvementsOption']!='',['improvementsOption']];
 for i, row in ans.iterrows():
     print(row.improvementsOption);
     print('\n');
-
-face = socialMediaResults2(responses,'1');
-yout = socialMediaResults2(responses,'2');
-insta = socialMediaResults2(responses,'3');
-twit = socialMediaResults2(responses,'4');
-snap = socialMediaResults2(responses,'5');
-redd = socialMediaResults2(responses,'6');
