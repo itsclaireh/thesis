@@ -2,7 +2,10 @@ import re
 import string
 from nltk.corpus import stopwords
 from html.parser import HTMLParser
-
+from nltk.stem.lancaster import LancasterStemmer
+from nltk.stem.porter import PorterStemmer
+from nltk.stem import WordNetLemmatizer
+from nltk.stem import SnowballStemmer
 
 punctuation = '!"$%&()*+,./:;<=>?@#[\]^_`{|}~'+'…'+'�';
 
@@ -27,29 +30,44 @@ def remove_weird_urls(tweet):
 def remove_nonUTF8(tweet):
     return tweet.decode('unicode_escape').encode('ascii','ignore');
 
-def clean_tweet(tweet):
-        tweet = tweet.lower();
-        #tweet = remove_nonUTF8(tweet);
-        tweet = strip_links(tweet);
-        tweet = remove_weird_urls(tweet);
+def stemmy(tweet):
+    lemmy = WordNetLemmatizer();
+    #stembro = SnowballStemmer('english');
+    words=[];
+    for word in tweet.split():
+        word = word.strip()
+        word = lemmy.lemmatize(word);
+        words.append(word);
+    return ' '.join(words);
 
-        entity_prefixes = ['@']
-        for separator in punctuation:
-            if separator not in entity_prefixes :
-                tweet = tweet.replace(separator,' ')
-        words = []
-        for word in tweet.split():
-            word = word.strip()
-            if word:
-                if word[0] not in entity_prefixes:
-                    if word not in stopwords.words('english'):
-                        words.append(word)
-        processed =  ' '.join(words)
-        #condense contractions into a word instead of splitting on it
-        final = [];
-        for token in processed.split(' '):
-            final.append(token.replace('\'', ''));
-        return ' '.join(final);
+    #porter_stemmer = PorterStemmer()
+    #wordnet_lemmatizer = WordNetLemmatizer()
+
+def clean_tweet(tweet):
+    tweet = tweet.lower();
+    #tweet = remove_nonUTF8(tweet);
+    tweet = strip_links(tweet);
+    tweet = remove_weird_urls(tweet);
+
+    entity_prefixes = ['@']
+    for separator in punctuation:
+        if separator not in entity_prefixes :
+            tweet = tweet.replace(separator,' ')
+    words = []
+    for word in tweet.split():
+        word = word.strip()
+        if word:
+            if word[0] not in entity_prefixes:
+                if word not in stopwords.words('english'):
+                    words.append(word)
+    processed =  ' '.join(words)
+    #condense contractions into a word instead of splitting on it
+    final = [];
+    for token in processed.split(' '):
+        part=token.replace('\'', '');
+        final.append(part);
+    return ' '.join(final);
+
 
 
 def clean_all(tweet):
