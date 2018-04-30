@@ -46,34 +46,8 @@ def svm_results(df, classLabel, NEC=None):
     #clfVariance.fit(x_train_tfidf, ytrain);
 
     #print('High C:\t{0}'.format(clf.coef_));
-    print('Low C:\t{0}'.format(clf.intercept_));
+    return clf;
 
-    #prediction
-    ypredicted=clf.predict(xtest);
-
-    '''
-    print('X Shape:\t{0}'.format(X.shape));
-    print('Y Shape:\t{0}'.format(Y.shape));
-    print('XTrain, YTrain:\t{0}'.format(xtrain.shape, ytrain.shape));
-    print('XTest, YTest:\t{0}'.format(xtest.shape, ytest.shape));
-    print('X TFIDF:\t{0}'.format(X_train_tfidf.shape));
-    '''
-    if NEC==None:
-
-        if classLabel == 'category':
-            target_names = ['Patronizing', 'Unwanted Sexual Attention', 'Predatory', 'Not Enough Context'];
-        elif classLabel == 'stance':
-            target_names = ['Support','Against','Neutral'];
-        elif classLabel == 'related':
-            target_names = ['Relevant','Irrelevant'];
-        else:
-            print('Something is Wrong');
-
-        print(classification_report(ytest, ypredicted, target_names=target_names));
-        print(accuracy_score(ytest, ypredicted));
-    else:
-        target_names = ['Patronizing', 'Unwanted Sexual Attention', 'Predatory'];
-        print(classification_report(ytest, ypredicted, target_names=target_names));
 
 def svm_results_reduction(df, classLabel, variabl):
     print('\t\t\t*******SVM*******');
@@ -130,7 +104,8 @@ def svm_results_reduction(df, classLabel, variabl):
 
     #prediction
     ypredicted=clf.predict(xtest);
-
+    print('y predicted');
+    print(ypredicted);
     '''
     print('X Shape:\t{0}'.format(X.shape));
     print('Y Shape:\t{0}'.format(Y.shape));

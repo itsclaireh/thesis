@@ -34,9 +34,10 @@ plt.xlabel('Number of Tweets Labeled')
 plt.title('Tweets Labeled Across Gender - Relevance')
 plt.legend(loc='best')
 plt.tight_layout();
-fig1 = plt.show()
 plt.savefig("surveyVis/pdfs/labelRel.pdf", bbox_inches="tight");
 plt.savefig("surveyVis/pngs/labelRel.png", bbox_inches="tight");
+fig1 = plt.show()
+
 
 sta = ['Support','Against','Neutral',' Left Blank'];
 womenStance = [3961,150,119,770];
@@ -56,9 +57,10 @@ plt.xlabel('Number of Tweets Labeled')
 plt.title('Tweets Labeled Across Gender - Stance')
 plt.legend(loc='best')
 plt.tight_layout();
-fig2 = plt.show()
 plt.savefig("surveyVis/pdfs/labelStance.pdf", bbox_inches="tight");
 plt.savefig("surveyVis/pngs/labelStance.png", bbox_inches="tight");
+fig2 = plt.show()
+
 
 
 cat = ['Patronizing','Unwanted Sexual Attention','Predatory','Not Enough Context','Blank'];
@@ -76,12 +78,13 @@ bar2 = plt.barh(ind-bar_width,menCat,bar_width,color='#2d6e8eff',label='Men');
 plt.yticks(ind-bar_width/2,cat);
 plt.ylabel('Category')
 plt.xlabel('Number of Tweets Labeled')
-plt.title('Tweets Labeled Across Gender - Sexual Harassment Category')
+plt.title('Tweets Labeled Across Gender - Type')
 plt.legend(loc='best')
 plt.tight_layout();
-fig3 = plt.show()
 plt.savefig("surveyVis/pdfs/labelCat.pdf", bbox_inches="tight");
 plt.savefig("surveyVis/pngs/labelCat.png", bbox_inches="tight");
+fig3 = plt.show()
+
 
 classes=['Relevant','Irrelevant','Support','Against','Neutral','Patronizing','Unwanted Sexual Attention','Predatory','Not Enough Context'];
 women = [4588,340,3961,150,119,96,82,372,2367];
@@ -101,6 +104,6 @@ plt.xlabel('Tweets Labeled')
 plt.title('Tweets Labeled Across Gender - All')
 plt.legend(loc='best')
 plt.tight_layout();
-fig4 = plt.show()
 plt.savefig("surveyVis/pdfs/labelTotal.pdf", bbox_inches="tight");
 plt.savefig("surveyVis/pngs/labelTotal.png", bbox_inches="tight");
+fig4 = plt.show()

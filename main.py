@@ -50,7 +50,7 @@ women = load_file(file2);
 #clean tweets
 for i, row in df.iterrows():
   if row.text:
-      df.set_value(i, 'text', clean_tweet(row.text));
+      df.at[i,'text']=clean_tweet(row.text);
       #df.set_value(i,'text',stemmy(row.text));
       #men.set_value(i, 'text',clean_tweet(row.text));
       #women.set_value(i, 'text',clean_tweet(row.text));
@@ -67,9 +67,9 @@ rates = [0.00,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0
 
 
 #for rate in rates:
-#svm_results_reduction(df, 'related',1);
-#svm_results_reduction(df, 'stance',1);
-#svm_results_reduction(df, 'category',10);
+svm_results_reduction(df, 'related',1);
+svm_results_reduction(df, 'stance',1);
+svm_results_reduction(df, 'category',10);
 nb_results(df, 'related',i);
 nb_results(df, 'stance',i);
 nb_results(df, 'category',i);
