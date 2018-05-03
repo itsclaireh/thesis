@@ -1,11 +1,14 @@
 import pandas as pd
 
+#load a file
 def load_file(filename):
 
     df = pd.read_csv(filename,header=None,index_col=None,encoding='latin1',dtype='str');
     df.columns=['id_str','text','related','stance','category'];
     return df;
 
+#compare two identical files
+#take only the responses that agree
 def compare_and_load_datasets(file1, file2):
 
     dfmen = load_file(file1);
@@ -48,6 +51,7 @@ def compare_and_load_datasets(file1, file2):
     df = df.dropna(axis=0, thresh=3);
     return(df);
 
+#this was for removing the Not Enough Context Category, which wasn't actually helpful in the end
 def remove_NEC(dfOld):
     ix=range(0,len(dfOld));
     col=['id_str','text','related','stance','category'];

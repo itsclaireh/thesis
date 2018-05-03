@@ -32,13 +32,13 @@ def printSizes(women):
     print('Against:\t\t{0}'.format(len(women_st2)));
     print('Neutral:\t\t{0}'.format(len(women_st3)));
 
+#load files
 file1 = 'data/MeTooMen.csv';
 file2 = 'data/MeTooWomen.csv';
 d = compare_and_load_datasets(file1, file2);
 
 supp = load_file('data/supplemental.csv');
 df=pd.concat([d,supp]);
-#print(df);
 
 supp2 = load_file('data/suppTweetsNoID.csv');
 df=pd.concat([df,supp2]);
@@ -58,6 +58,9 @@ for i, row in df.iterrows():
 
 print('\n');
 
+#comment/uncomment rates
+#used to test the different results of changing certain variables
+
 #rates = [0.00,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50];
 rates = [0.00,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95];
 #rates = [0,.1,.15,.2,.25,.3];
@@ -65,8 +68,6 @@ rates = [0.00,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0
 #rates = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
 
 
-
-#for rate in rates:
 svm_results_reduction(df, 'related',1);
 svm_results_reduction(df, 'stance',1);
 svm_results_reduction(df, 'category',10);

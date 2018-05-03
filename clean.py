@@ -7,8 +7,10 @@ from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import SnowballStemmer
 
+#added the elipses and ? characters to python's punctuation set
 punctuation = '!"$%&()*+,./:;<=>?@#[\]^_`{|}~'+'…'+'�';
 
+#strip links
 #https://stackoverflow.com/questions/8376691/how-to-remove-hashtag-user-link-of-a-tweet-using-regular-expression/8377440#8377440
 def strip_links(text):
     link_regex    = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
@@ -17,19 +19,23 @@ def strip_links(text):
         text = text.replace(link[0], ', ')
     return text
 
+#other help
 #https://stackoverflow.com/questions/18146557/removing-escaped-entities-from-a-string-in-python
 
+#remove URLs not caught with the initial strip
 def remove_weird_urls(tweet):
-    tweet = re.sub('(www|http).*?(org |net |edu |com |be |tt |me |ms )','',tweet);
+    tweet = re.sub('(www|http).*?(org |net |edu |com |be |tt |me |ms |le)','',tweet);
     tweet = re.sub('(\s*)http(\s*)','',tweet);
     tweet = re.sub('(\s*)https(\s*)','',tweet);
     tweet = re.sub('(\s*)www(\s*)','',tweet);
     tweet = re.sub('(pic).*?(twitter).*?(com)','',tweet);
     return tweet;
 
+#not used, decided to run linux command to remove non-UTF8 characters instead
 def remove_nonUTF8(tweet):
     return tweet.decode('unicode_escape').encode('ascii','ignore');
 
+#lemmatization
 def stemmy(tweet):
     lemmy = WordNetLemmatizer();
     #stembro = SnowballStemmer('english');
@@ -43,6 +49,8 @@ def stemmy(tweet):
     #porter_stemmer = PorterStemmer()
     #wordnet_lemmatizer = WordNetLemmatizer()
 
+#apply other
+#remove punctuation, username mentions, etc
 def clean_tweet(tweet):
     tweet = tweet.lower();
     #tweet = remove_nonUTF8(tweet);
@@ -69,7 +77,7 @@ def clean_tweet(tweet):
     return ' '.join(final);
 
 
-
+#not used, decided to loop in the main file instead of here
 def clean_all(tweet):
     for t in tweet:
         t=clean_tweet(t);
